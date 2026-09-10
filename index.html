@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail" data-bg-color="#151210">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#151210"></rect>
+
+  </svg>
+</template>
+<helmet>
+<title>Ananya Mahadi · Designer</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&amp;family=Manrope:wght@300;400;500;600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #15120F; color: #F2EDE4; font-family: "Manrope", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #F2EDE4; text-decoration: none; }
+  a:hover { color: #E8A38F; }
+  img { display: block; max-width: 100%; }
+  ::selection { background: #3A2F22; }
+  @keyframes nudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
+  @keyframes floatUp { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes pageIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @keyframes splashOut { 0%, 22% { opacity: 1; } 100% { opacity: 0; visibility: hidden; } }
+</style>
+</helmet>
+
+
+<div style="min-height: 100vh; display: flex; flex-direction: column; overflow-x: clip">
+
+  <header style="position: sticky; top: 0; z-index: 40; backdrop-filter: blur(10px); background-color: #1B1712D1">
+    <nav style="max-width: 1120px; margin: 0 auto; padding: 14px 22px; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; background-color: #1B1712">
+      <a href="#/home" style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 17px; letter-spacing: -0.02em; display: flex; align-items: center; gap: 9px">
+        Ananya Mahadi
+      </a>
+      <div style="display: flex; align-items: center; gap: 4px; font-size: 15px">
+        <a href="#/home" style="padding: 8px 15px; border-radius: 999px; transition: background 0.22s ease, color 0.22s ease" style-hover="background:#3A252A">Home</a>
+        <div style="position: relative; display: inline-flex; align-items: center" onMouseEnter="{{ openWork }}" onMouseLeave="{{ closeWork }}" onMouseOver="{{ openWork }}">
+          <a href="#/work" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 15px; border-radius: 999px; transition: background 0.22s ease, color 0.22s ease" style-hover="background:#24302A" onMouseEnter="{{ openWork }}" onFocus="{{ openWork }}">Work
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="width: 12px; height: 12px; opacity: 0.65"><path d="M6 9l6 6 6-6"></path></svg>
+          </a>
+          <div style="{{ workMenuStyle }}">
+            <a href="#/work/thoughtgps" style="display: block; padding: 9px 12px; border-radius: 10px; font-size: 14px; color: #DBD2C6; transition: background 0.18s ease, color 0.18s ease" style-hover="background:#262A3E;color:#F2EDE4">ThoughtGPS</a>
+            <a href="#/work/coastkeeper" style="display: block; padding: 9px 12px; border-radius: 10px; font-size: 14px; color: #DBD2C6; transition: background 0.18s ease, color 0.18s ease" style-hover="background:#22303A;color:#F2EDE4">San Diego Coastkeeper</a>
+            <a href="#/work/sakura" style="display: block; padding: 9px 12px; border-radius: 10px; font-size: 14px; color: #DBD2C6; transition: background 0.18s ease, color 0.18s ease" style-hover="background:#3A252A;color:#F2EDE4">Sakura</a>
+            <a href="#/work/artwork" style="display: block; padding: 9px 12px; border-radius: 10px; font-size: 14px; color: #DBD2C6; transition: background 0.18s ease, color 0.18s ease" style-hover="background:#392E1D;color:#F2EDE4">Artwork</a>
+          </div>
+        </div>
+        <a href="#/about" style="padding: 8px 15px; border-radius: 999px; transition: background 0.22s ease, color 0.22s ease" style-hover="background:#262A3E">About</a>
+        <a href="#/contact" style="padding: 8px 15px; border-radius: 999px; transition: background 0.22s ease, color 0.22s ease" style-hover="background:#392E1D">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  
+
+  <main style="flex: 1; animation: pageIn 0.55s cubic-bezier(0.22,0.7,0.24,1) both" ref="{{ mainRef }}">
+
+    <!-- ================= HOME ================= -->
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+      <section style="position: relative; overflow: hidden; background: #1B1712">
+        <canvas ref="{{ canvasRef }}" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none"></canvas>
+        <div style="position: relative; max-width: 1120px; margin: 0 auto; padding: 22px; min-height: calc(100vh - 64px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center">
+          
+          <h1 style="font-family: 'Sora', sans-serif; font-size: clamp(40px, 7vw, 76px); line-height: 1.02; letter-spacing: -0.035em; margin: 0; max-width: 18ch; text-wrap: balance; font-weight: 700"><span style="font-weight: normal;">Hi, I'm Ananya.</span></h1>
+          <p style="font-size: clamp(17px, 2.1vw, 21px); line-height: 1.55; color: #C7BDB0; max-width: 58ch; margin: 24px auto 0; text-wrap: pretty">I'm a designer who blends creativity, technology, and human-centered thinking to create digital experiences that feel intuitive and meaningful.</p>
+          <p style="margin: 22px 0 0; font-size: 13px; letter-spacing: 0.06em; color: #A69A8B">psst — swish your cursor around!</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; justify-content: center">
+            <a href="#/work" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 999px; background: #F2EDE4; color: #15120F; font-size: 16px; font-weight: 500; transition: transform 0.2s ease, background 0.2s ease" style-hover="background:#E7DCCB;transform:translateY(-2px);color:#15120F">
+              View my work
+              <span style="display: inline-block; animation: nudge 1.5s ease-in-out infinite">→</span>
+            </a>
+            <a href="#/about" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 999px; border: 1px solid #3A332B; background: rgba(242, 237, 228, 0.07); font-size: 16px; font-weight: 500; transition: background 0.2s ease, transform 0.2s ease" style-hover="background:#262A3E;transform:translateY(-2px);color:#F2EDE4">About me</a>
+          </div>
+          <button onClick="{{ scrollDown }}" style="position: absolute; left: 50%; transform: translateX(-50%); bottom: 26px; display: inline-flex; align-items: center; gap: 10px; padding: 0; border: 0; background: transparent; font-family: 'Manrope', sans-serif; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #A69A8B; cursor: pointer; transition: color 0.2s ease" style-hover="color:#F2EDE4">
+            Featured work
+            <span style="display: inline-block; animation: floatUp 1.8s ease-in-out infinite">↓</span>
+          </button>
+        </div>
+      </section>
+
+      <section style="max-width: 1120px; margin: 0 auto; padding: 40px 22px 20px">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid #2E2823; padding-bottom: 14px">
+          <h2 style="font-family: 'Sora', sans-serif; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: #9B8F7E; margin: 0; font-weight: 500">Featured work</h2>
+          <span style="font-size: 14px; color: #9B8F7E">2026 · Product design</span>
+        </div>
+
+        <a href="#/work/sakura" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 34px; align-items: center; margin-top: 34px; padding: 30px; border-radius: 26px; background: #2C1F22; border: 1px solid #3E2B2F; transition: transform 0.25s ease, box-shadow 0.25s ease" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(120,70,80,0.45);color:#F2EDE4">
+          <div>
+            <h3 style="font-family: 'Sora', sans-serif; font-size: clamp(30px, 4vw, 42px); letter-spacing: -0.03em; margin: 0">Sakura</h3>
+            <p style="font-size: 17px; line-height: 1.55; color: #C7BDB0; margin: 14px 0 0; text-wrap: pretty">Helping low-income women discover affordable alternatives to overpriced pink-tax products through a simple search and comparison experience.</p>
+            <span style="display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; font-weight: 500; font-size: 16px; border-bottom: 1px solid #C97B84; padding-bottom: 3px">
+              View case study
+              <span style="display: inline-block; transition: transform 0.25s ease">→</span>
+            </span>
+          </div>
+          <img src="assets/sakura/opt-p13-1.png" alt="Sakura app savings tracker screen" style="width: 100%; max-width: 300px; margin: 0 auto; border-radius: 18px">
+        </a>
+
+        <div style="display: flex; justify-content: center; margin-top: 30px">
+          <a href="#/work" style="display: inline-flex; align-items: center; gap: 9px; padding: 13px 24px; border-radius: 999px; border: 1px solid #3A332B; font-size: 16px; font-weight: 500; transition: background 0.2s ease" style-hover="background:#24302A;color:#F2EDE4">See all projects <span>→</span></a>
+        </div>
+      </section>
+
+      <section style="max-width: 1120px; margin: 40px auto 80px; padding: 0 22px">
+        <div style="padding: 38px 34px; border-radius: 26px; background: #24302A; border: 1px solid #35473B">
+          <h2 style="font-family: 'Sora', sans-serif; font-size: clamp(26px, 3.8vw, 38px); letter-spacing: -0.03em; margin: 0; max-width: 22ch; text-wrap: balance">Let's create something together</h2>
+          <p style="font-size: 16px; line-height: 1.6; color: #C2CEBE; max-width: 52ch; margin: 12px 0 0; text-wrap: pretty">I'm currently open to design internships and freelance projects.</p>
+          <a href="#/contact" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 24px; padding: 14px 24px; border-radius: 999px; background: #F2EDE4; color: #15120F; font-size: 16px; font-weight: 500; transition: transform 0.2s ease, background 0.2s ease" style-hover="background:#E7DCCB;transform:translateY(-2px);color:#15120F">
+            Get in touch
+            <span style="display: inline-block; animation: nudge 1.5s ease-in-out infinite">→</span>
+          </a>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- ================= WORK ================= -->
+    <sc-if value="{{ isWork }}" hint-placeholder-val="{{ false }}">
+      <section style="max-width: 3000px; margin: 0 auto; padding: 74px 22px 20px; border-radius: 0 0 30px 30px; background: radial-gradient(55% 70% at 92% 0%, rgba(136, 145, 196, 0.2), rgba(136, 145, 196, 0) 70%), radial-gradient(50% 80% at 4% 10%, rgba(201, 123, 132, 0.16), rgba(201, 123, 132, 0) 72%); width: 1988px; height: 242px">
+        <h1 style="font-family: 'Sora', sans-serif; font-size: clamp(38px, 6vw, 66px); letter-spacing: -0.035em; margin: 0; text-align: left; margin-left: 19px">Work</h1>
+        <p style="font-size: clamp(17px, 2vw, 20px); line-height: 1.55; color: #C7BDB0; max-width: 89ch; margin: 20px 0 0; text-wrap: pretty; margin-left: 25px">Each project is a journey of discovery, iteration, and problem-solving. Here's a collection of work where I've designed for real people, real problems, and real impact.</p>
+      </section>
+
+      <section style="max-width: 1120px; margin: 0 auto; padding: 34px 22px 70px; display: flex; flex-direction: column; gap: 20px">
+        <a href="#/work/thoughtgps" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; align-items: center; padding: 26px; border-radius: 24px; border: 1px solid #2E2823; background: #1E1A16; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease" style-hover="transform:translateY(-4px);box-shadow:0 20px 44px -28px rgba(60,50,40,0.4);border-color:#463D33;color:#F2EDE4">
+          <div>
+            <span style="display: inline-block; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #A69A8B; padding: 6px 12px; border-radius: 999px; background: #262A3E">UX Research · UI/UX Design</span>
+            <h2 style="font-family: 'Sora', sans-serif; font-size: clamp(26px, 3.4vw, 36px); letter-spacing: -0.03em; margin: 16px 0 0">ThoughtGPS</h2>
+            <p style="font-size: 16px; line-height: 1.55; color: #C7BDB0; margin: 12px 0 0; max-width: 52ch; text-wrap: pretty">Improving the ThoughtGPS experience through user research, onboarding insights, and a collaborative redesign of the app's UI and UX.</p>
+            <span style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; font-weight: 500; font-size: 15px; border-bottom: 1px solid #C4795C; padding-bottom: 3px">View case study <span>→</span></span>
+          </div>
+          <img src="assets/thoughtgps/design-master-sheet.png" alt="ThoughtGPS redesign screens" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 16px; background: #221D18">
+        </a>
+
+        <a href="#/work/coastkeeper" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; align-items: center; padding: 26px; border-radius: 24px; border: 1px solid #2E2823; background: #1E1A16; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease" style-hover="transform:translateY(-4px);box-shadow:0 20px 44px -28px rgba(60,50,40,0.4);border-color:#463D33;color:#F2EDE4">
+          <div>
+            <span style="display: inline-block; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #A69A8B; padding: 6px 12px; border-radius: 999px; background: #22303A">Website Re-design</span>
+            <h2 style="font-family: 'Sora', sans-serif; font-size: clamp(26px, 3.4vw, 36px); letter-spacing: -0.03em; margin: 16px 0 0">San Diego Coastkeeper</h2>
+            <p style="font-size: 16px; line-height: 1.55; color: #C7BDB0; margin: 12px 0 0; max-width: 52ch; text-wrap: pretty">Making environmental and water quality information easier to find, understand, and act on through a more intuitive website experience.</p>
+            <span style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; font-weight: 500; font-size: 15px; border-bottom: 1px solid #C4795C; padding-bottom: 3px">View case study <span>→</span></span>
+          </div>
+          <img src="assets/coastkeeper/opt-p17-1-cut.png" alt="Redesigned San Diego Coastkeeper courses page" style="width: 106%; margin-left: -3%; aspect-ratio: 4 / 3; object-fit: contain">
+        </a>
+
+        <a href="#/work/sakura" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; align-items: center; padding: 26px; border-radius: 24px; border: 1px solid #2E2823; background: #1E1A16; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease" style-hover="transform:translateY(-4px);box-shadow:0 20px 44px -28px rgba(60,50,40,0.4);border-color:#463D33;color:#F2EDE4">
+          <div>
+            <span style="display: inline-block; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #A69A8B; padding: 6px 12px; border-radius: 999px; background: #3A252A">Product Design</span>
+            <h2 style="font-family: 'Sora', sans-serif; font-size: clamp(26px, 3.4vw, 36px); letter-spacing: -0.03em; margin: 16px 0 0">Sakura</h2>
+            <p style="font-size: 16px; line-height: 1.55; color: #C7BDB0; margin: 12px 0 0; max-width: 52ch; text-wrap: pretty">Helping low-income women discover affordable alternatives to overpriced pink-tax products through a simple search and comparison experience.</p>
+            <span style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; font-weight: 500; font-size: 15px; border-bottom: 1px solid #C4795C; padding-bottom: 3px">View case study <span>→</span></span>
+          </div>
+          <img src="assets/sakura/opt-p12-2.png" alt="Sakura best alternative screen" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; border-radius: 16px; background: #221D18">
+        </a>
+
+        <a href="#/work/artwork" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; align-items: center; padding: 26px; border-radius: 24px; border: 1px solid #2E2823; background: #1E1A16; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease" style-hover="transform:translateY(-4px);box-shadow:0 20px 44px -28px rgba(60,50,40,0.4);border-color:#463D33;color:#F2EDE4">
+          <div>
+            <span style="display: inline-block; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #A69A8B; padding: 6px 12px; border-radius: 999px; background: #392E1D">Visual Design</span>
+            <h2 style="font-family: 'Sora', sans-serif; font-size: clamp(26px, 3.4vw, 36px); letter-spacing: -0.03em; margin: 16px 0 0">Artwork</h2>
+            <p style="font-size: 16px; line-height: 1.55; color: #C7BDB0; margin: 12px 0 0; max-width: 52ch; text-wrap: pretty">A collection of my most important artwork.</p>
+            <span style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; font-weight: 500; font-size: 15px; border-bottom: 1px solid #C4795C; padding-bottom: 3px">View gallery <span>→</span></span>
+          </div>
+          <img src="assets/artwork/opt-birthday-amnesia.jpg" alt="Birthday Amnesia" style="width: 100%; aspect-ratio: 4 / 3; object-fit: contain; border-radius: 16px; background: #221D18">
+        </a>
+      </section>
+
+      <section style="max-width: 1120px; margin: 10px auto 80px; padding: 0 22px">
+        <div style="padding: 38px 34px; border-radius: 26px; background: #33251D; border: 1px solid #3F3128">
+          <h2 style="font-family: 'Sora', sans-serif; font-size: clamp(26px, 3.8vw, 38px); letter-spacing: -0.03em; margin: 0">Want to see more?</h2>
+          <p style="font-size: 16px; line-height: 1.6; color: #C7BDB0; max-width: 52ch; margin: 12px 0 0; text-wrap: pretty">I have additional projects and explorations I'd love to share.</p>
+          <a href="#/contact" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 24px; padding: 14px 24px; border-radius: 999px; background: #F2EDE4; color: #15120F; font-size: 16px; font-weight: 500; transition: transform 0.2s ease, background 0.2s ease" style-hover="background:#E7DCCB;transform:translateY(-2px);color:#15120F">
+            Get in touch
+            <span style="display: inline-block; animation: nudge 1.5s ease-in-out infinite">→</span>
+          </a>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- ================= ARTWORK ================= -->
+    <sc-if value="{{ isArt }}" hint-placeholder-val="{{ false }}">
+      <section style="max-width: 1120px; margin: 0 auto; padding: 74px 22px 10px">
+        <a href="#/work" style="font-size: 15px; color: #9B8F7E">← Back to work</a>
+        <h1 style="font-family: 'Sora', sans-serif; font-size: clamp(38px, 6vw, 66px); letter-spacing: -0.035em; margin: 18px 0 0">Artwork</h1>
+        <p style="font-size: clamp(17px, 2vw, 20px); line-height: 1.55; color: #C7BDB0; max-width: 56ch; margin: 18px 0 0">A collection of my visual design and mixed media work.</p>
+      </section>
+      <section style="max-width: 1120px; margin: 0 auto; padding: 36px 22px 80px">
+        <sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
+          <div onClick="{{ closeArt }}" style="position: fixed; inset: 0; z-index: 90; background: rgba(28, 24, 21, 0.86); backdrop-filter: blur(6px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 34px 22px; cursor: zoom-out; animation: fadeUp 0.22s ease">
+            {{ lightboxImage }}
+            <p style="margin: 0; color: #F2EDE4; font-size: 15px; letter-spacing: 0.02em">{{ lightboxTitle }}</p>
+            <p style="margin: 0; color: rgba(242, 237, 228, 0.62); font-size: 13px">Click anywhere or press Esc to close</p>
+          </div>
+        </sc-if>
+
+        <div style="columns: {{ artColumns }}; column-gap: 20px">
+          <figure style="margin: 0 0 20px; break-inside: avoid">
+            <div data-src="assets/artwork/opt-filtered-view.jpg" data-title="Filtered View" onClick="{{ openArt }}" style="position: relative; overflow: hidden; border-radius: 18px; background: #221D18; border: 1px solid #2E2823; cursor: zoom-in">
+              <img src="assets/artwork/opt-filtered-view.jpg" alt="Filtered View" style="width: 100%">
+              <div style="position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; padding: 16px; background: rgba(34, 30, 27, 0); opacity: 0; transition: opacity 0.28s ease, background 0.28s ease" style-hover="opacity:1;background:rgba(34,30,27,0.28)">
+                <span style="display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: #F2EDE4; color: #15120F; font-size: 14px; font-weight: 500">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="width: 15px; height: 15px"><path d="M14 4h6v6"></path><path d="M20 4l-7 7"></path><path d="M10 20H4v-6"></path><path d="M4 20l7-7"></path></svg>
+                  View larger
+                </span>
+              </div>
+            </div>
+            <figcaption style="display: flex; justify-content: space-between; gap: 10px; margin-top: 10px; font-size: 14px; color: #A69A8B">
+              <span style="font-weight: 500; color: #F2EDE4">Filtered View</span>
+              <span>01</span>
+            </figcaption>
+          </figure>
+          <figure style="margin: 0 0 20px; break-inside: avoid">
+            <div data-src="assets/artwork/opt-doors.jpg" data-title="Doors" onClick="{{ openArt }}" style="position: relative; overflow: hidden; border-radius: 18px; background: #221D18; border: 1px solid #2E2823; cursor: zoom-in">
+              <img src="assets/artwork/opt-doors.jpg" alt="Doors" style="width: 100%">
+              <div style="position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; padding: 16px; background: rgba(34, 30, 27, 0); opacity: 0; transition: opacity 0.28s ease, background 0.28s ease" style-hover="opacity:1;background:rgba(34,30,27,0.28)">
+                <span style="display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: #F2EDE4; color: #15120F; font-size: 14px; font-weight: 500">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="width: 15px; height: 15px"><path d="M14 4h6v6"></path><path d="M20 4l-7 7"></path><path d="M10 20H4v-6"></path><path d="M4 20l7-7"></path></svg>
+                  View larger
+                </span>
+              </div>
+            </div>
+            <figcaption style="display: flex; justify-content: space-between; gap: 10px; margin-top: 10px; font-size: 14px; color: #A69A8B">
+              <span style="font-weight: 500; color: #F2EDE4">Doors</span>
+              <span>02</span>
+            </figcaption>
+          </figure>
+          <figure style="margin: 0 0 20px; break-inside: avoid">
+            <div data-src="assets/artwork/opt-jumbled-pieces.jpg" data-title="Jumbled Pieces" onClick="{{ openArt }}" style="position: relative; overflow: hidden; border-radius: 18px; background: #221D18; border: 1px solid #2E2823; cursor: zoom-in">
+              <img src="assets/artwork/opt-jumbled-pieces.jpg" alt="Jumbled Pieces" style="width: 100%">
+              <div style="position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; padding: 16px; background: rgba(34, 30, 27, 0); opacity: 0; transition: opacity 0.28s ease, background 0.28s ease" style-hover="opacity:1;background:rgba(34,30,27,0.28)">
+                <span style="display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: #F2EDE4; color: #15120F; font-size: 14px; font-weight: 500">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="width: 15px; height: 15px"><path d="M14 4h6v6"></path><path d="M20 4l-7 7"></path><path d="M10 20H4v-6"></path><path d="M4 20l7-7"></path></svg>
+                  View larger
+                </span>
+              </div>
+            </div>
+            <figcaption style="display: flex; justify-content: space-between; gap: 10px; margin-top: 10px; font-size: 14px; color: #A69A8B">
+              <span style="font-weight: 500; color: #F2EDE4">Jumbled Pieces</span>
+              <span>03</span>
+            </figcaption>
+          </figure>
+          <figure style="margin: 0 0 20px; break-inside: avoid">
+            <div data-src="assets/artwork/opt-pieces-of-me.jpg" data-title="Pieces of Me" onClick="{{ openArt }}" style="position: relative; overflow: hidden; border-radius: 18px; background: #221D18; border: 1px solid #2E2823; cursor: zoom-in">
+              <img src="assets/artwork/opt-pieces-of-me.jpg" alt="Pieces of Me" style="width: 100%">
+              <div style="position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; padding: 16px; background: rgba(34, 30, 27, 0); opacity: 0; transition: opacity 0.28s ease, background 0.28s ease" style-hover="opacity:1;background:rgba(34,30,27,0.28)">
+                <span style="display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: #F2EDE4; color: #15120F; font-size: 14px; font-weight: 500">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="width: 15px; height: 15px"><path d="M14 4h6v6"></path><path d="M20 4l-7 7"></path><path d="M10 20H4v-6"></path><path d="M4 20l7-7"></path></svg>
+                  View larger
+                </span>
+              </div>
+            </div>
+            <figcaption style="display: flex; justify-content: space-between; gap: 10px; margin-top: 10px; font-size: 14px; color: #A69A8B">
+              <span style="font-weight: 500; color: #F2EDE4">Pieces of Me</span>
+              <span>04</span>
+            </figcaption>
+          </figure>
+          <figure style="margin: 0 0 20px; break-inside: avoid">
+            <div data-src="assets/artwork/opt-me-and-my-dog.jpg" data-title="Me and My Dog" onClick="{{ openArt }}" style="position: relative; overflow: hidden; border-radius: 18px; background: #221D18; border: 1px solid #2E2823; cursor: zoom-in">
+              <img src="assets/artwork/opt-me-and-my-dog.jpg" alt="Me and My Dog" style="width: 100%">
+              <div style="position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; padding: 16px; background: rgba(34, 30, 27, 0); opacity: 0; transition: opacity 0.28s ease, background 0.28s ease" style-hover="opacity:1;background:rgba(34,30,27,0.28)">
+                <span style="display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: #F2EDE4; color: #15120F; font-size: 14px; font-weight: 500">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="width: 15px; height: 15px"><path d="M14 4h6v6"></path><path d="M20 4l-7 7"></path><path d="M10 20H4v-6"></path><path d="M4 20l7-7"></path></svg>
+                  View larger
+                </span>
+              </div>
+            </div>
+            <figcaption style="display: flex; justify-content: space-between; gap: 10px; margin-top: 10px; font-size: 14px; color: #A69A8B">
+              <span style="font-weight: 500; color: #F2EDE4">Me and My Dog</span>
+              <span>05</span>
+            </figcaption>
+          </figure>
+          <figure style="margin: 0 0 20px; break-inside: avoid">
+            <div data-src="assets/artwork/opt-birthday-amnesia.jpg" data-title="Birthday Amnesia" onClick="{{ openArt }}" style="position: relative; overflow: hidden; border-radius: 18px; background: #221D18; border: 1px solid #2E2823; cursor: zoom-in">
+              <img src="assets/artwork/opt-birthday-amnesia.jpg" alt="Birthday Amnesia" style="width: 100%">
+              <div style="position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; padding: 16px; background: rgba(34, 30, 27, 0); opacity: 0; transition: opacity 0.28s ease, background 0.28s ease" style-hover="opacity:1;background:rgba(34,30,27,0.28)">
+                <span style="display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: #F2EDE4; color: #15120F; font-size: 14px; font-weight: 500">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="width: 15px; height: 15px"><path d="M14 4h6v6"></path><path d="M20 4l-7 7"></path><path d="M10 20H4v-6"></path><path d="M4 20l7-7"></path></svg>
+                  View larger
+                </span>
+              </div>
+            </div>
+            <figcaption style="display: flex; justify-content: space-between; gap: 10px; margin-top: 10px; font-size: 14px; color: #A69A8B">
+              <span style="font-weight: 500; color: #F2EDE4">Birthday Amnesia</span>
+              <span>06</span>
+            </figcaption>
+          </figure>
+          <figure style="margin: 0 0 20px; break-inside: avoid">
+            <div data-src="assets/artwork/opt-bathroom-tiles.jpg" data-title="Bathroom Tiles" onClick="{{ openArt }}" style="position: relative; overflow: hidden; border-radius: 18px; background: #221D18; border: 1px solid #2E2823; cursor: zoom-in">
+              <img src="assets/artwork/opt-bathroom-tiles.jpg" alt="Bathroom Tiles" style="width: 100%">
+              <div style="position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; padding: 16px; background: rgba(34, 30, 27, 0); opacity: 0; transition: opacity 0.28s ease, background 0.28s ease" style-hover="opacity:1;background:rgba(34,30,27,0.28)">
+                <span style="display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: #F2EDE4; color: #15120F; font-size: 14px; font-weight: 500">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="width: 15px; height: 15px"><path d="M14 4h6v6"></path><path d="M20 4l-7 7"></path><path d="M10 20H4v-6"></path><path d="M4 20l7-7"></path></svg>
+                  View larger
+                </span>
+              </div>
+            </div>
+            <figcaption style="display: flex; justify-content: space-between; gap: 10px; margin-top: 10px; font-size: 14px; color: #A69A8B">
+              <span style="font-weight: 500; color: #F2EDE4">Bathroom Tiles</span>
+              <span>07</span>
+            </figcaption>
+          </figure>
+          <figure style="margin: 0 0 20px; break-inside: avoid">
+            <div data-src="assets/artwork/opt-autopilot.jpg" data-title="Autopilot" onClick="{{ openArt }}" style="position: relative; overflow: hidden; border-radius: 18px; background: #221D18; border: 1px solid #2E2823; cursor: zoom-in">
+              <img src="assets/artwork/opt-autopilot.jpg" alt="Autopilot" style="width: 100%">
+              <div style="position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; padding: 16px; background: rgba(34, 30, 27, 0); opacity: 0; transition: opacity 0.28s ease, background 0.28s ease" style-hover="opacity:1;background:rgba(34,30,27,0.28)">
+                <span style="display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: #F2EDE4; color: #15120F; font-size: 14px; font-weight: 500">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="width: 15px; height: 15px"><path d="M14 4h6v6"></path><path d="M20 4l-7 7"></path><path d="M10 20H4v-6"></path><path d="M4 20l7-7"></path></svg>
+                  View larger
+                </span>
+              </div>
+            </div>
+            <figcaption style="display: flex; justify-content: space-between; gap: 10px; margin-top: 10px; font-size: 14px; color: #A69A8B">
+              <span style="font-weight: 500; color: #F2EDE4">Autopilot</span>
+              <span>08</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- ================= THOUGHTGPS ================= -->
+    <sc-if value="{{ isTgps }}" hint-placeholder-val="{{ false }}">
+      <article style="max-width: 900px; margin: 0 auto; padding: 74px 22px 80px">
+        <a href="#/work" style="font-size: 15px; color: #9B8F7E">← Back to work</a>
+        <h1 style="font-family: 'Sora', sans-serif; font-size: clamp(36px, 5.5vw, 60px); letter-spacing: -0.035em; margin: 18px 0 0">ThoughtGPS</h1>
+        <p style="font-size: clamp(17px, 2vw, 20px); line-height: 1.55; color: #C7BDB0; margin: 18px 0 0; text-wrap: pretty">Improving the ThoughtGPS Creator experience through user research, onboarding insights, and a collaborative redesign of the app's UI and UX.</p>
+
+        <dl style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; margin: 34px 0 0; padding: 22px; border-radius: 20px; background: #262A3E">
+          <div><dt style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #A9B1DD">Role</dt><dd style="margin: 6px 0 0; font-weight: 500">User Onboarding &amp; Product Research Intern</dd></div>
+          <div><dt style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #A9B1DD">Timeline</dt><dd style="margin: 6px 0 0; font-weight: 500">May – Aug 2026</dd></div>
+          <div><dt style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #A9B1DD">Team</dt><dd style="margin: 6px 0 0; font-weight: 500">Product + UI/UX teams</dd></div>
+          <div><dt style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #A9B1DD">Focus</dt><dd style="margin: 6px 0 0; font-weight: 500">Onboarding, retention, gamification</dd></div>
+        </dl>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 54px 0 0">Context</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty">ThoughtGPS is an audio-route platform where creators record short clips and stitch them into location-based routes that listeners follow. I joined the User Onboarding team an intern on the Creator app, working remotely alongside the UI/UX teams. My brief: figure out where new creators were getting stuck and turn the research into changes we could actually build.</p>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 46px 0 0">The problem</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty; width: 858px; height: 88px">Creators were signing up, then getting stuck. Going from downloading the app to creating a first clip, and from a first clip to building a full route, required a lot of unfamiliar work upfront. Through testing and feedback, we found that new creators often weren't sure what to do next or whether they were making progress.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-top: 26px">
+          <figure style="margin: 0"><img src="assets/thoughtgps/before-home.jpg" alt="Original Creator home screen" style="width: 100%; border-radius: 14px; border: 1px solid #2E2823; display: block"><figcaption style="font-size: 13px; color: #A69A8B; margin-top: 8px">Creator home</figcaption></figure>
+          <figure style="margin: 0"><img src="assets/thoughtgps/before-record.jpg" alt="Original Record Clip screen" style="width: 100%; border-radius: 14px; border: 1px solid #2E2823; display: block"><figcaption style="font-size: 13px; color: #A69A8B; margin-top: 8px">Record a clip</figcaption></figure>
+          <figure style="margin: 0"><img src="assets/thoughtgps/before-nearme.jpg" alt="Original Near Me screen" style="width: 100%; border-radius: 14px; border: 1px solid #2E2823; display: block"><figcaption style="font-size: 13px; color: #A69A8B; margin-top: 8px">Near Me</figcaption></figure>
+          <figure style="margin: 0"><img src="assets/thoughtgps/before-tours.jpg" alt="Original My Tours screen" style="width: 100%; border-radius: 14px; border: 1px solid #2E2823; display: block"><figcaption style="font-size: 13px; color: #A69A8B; margin-top: 8px">My Tours</figcaption></figure>
+        </div>
+        <p style="font-size: 15px; line-height: 1.6; color: #A69A8B; margin: 12px 0 0; text-wrap: pretty">The live Creator app I tested and gave feedback on. Recording worked, but it wasn’t always clear what to do next. The Tours list was empty, and the map looked the same whether you had one clip or fifty.</p>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 46px 0 0">Research</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty">My team and I ran user interviews and usability tests with creators, paying attention to where they hesitated, what confused them, and what they expected to happen next. I helped identify and organize these friction points, then worked with the team to turn our findings into a prioritized set of product improvements.</p>
+        <p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty">I also tested the ThoughtGPS Creator app myself, submitted detailed product feedback, and completed several creator focused assignments. I created an AI character and creator profile and built five location based audio tours, which gave me a better understanding of the product from the creator's perspective.</p>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 46px 0 0; width: 701px; height: 34px">Prioritizing what to build</h2><p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty">Rather than creating a wishlist of features, we compared ideas based on their potential impact and how difficult they would be to implement.</p><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 26px">
+          <div style="padding: 20px; border-radius: 18px; background: #1E1A16; border: 1px solid #2E2823">
+            <p style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #9B8F7E; margin: 0">Highest impact</p>
+            <p style="margin: 10px 0 0; line-height: 1.5; font-size: 15px">First Clip Badge · First Route Badge · Creator Levels · Points System</p>
+          </div>
+          <div style="padding: 20px; border-radius: 18px; background: #1E1A16; border: 1px solid #2E2823">
+            <p style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #9B8F7E; margin: 0">EASIEST TO BUILD</p>
+            <p style="margin: 10px 0 0; line-height: 1.5; font-size: 15px">First Clip Badge · First Route Badge · Route Completion Trophies · City Explorer Badges</p>
+          </div>
+          <div style="padding: 20px; border-radius: 18px; background: #1E1A16; border: 1px solid #2E2823">
+            <p style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #9B8F7E; margin: 0">Deliberately deferred</p>
+            <p style="margin: 10px 0 0; line-height: 1.5; font-size: 15px">Leaderboards. Competitive ranking could discourage the new creators we were trying to get started, so we chose to focus on progress and achievement instead.</p>
+          </div>
+        </div>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 46px 0 0">The solution</h2>
+        <div style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty"><div>We explored a gamification and rewards layer centered around the two moments where creators were most likely to drop off: creating their first clip and completing their first route.</div><div><br></div><div>Badges recognize these milestones right away, while creator levels and a points system give creators a longer term sense of progress. Streaks and trophies encourage creators to keep coming back after their first successful actions.</div><div><br></div><div>I also mapped where these rewards could appear throughout the experience, including onboarding, the creator dashboard, route completion, profiles, the map, notifications, and the weekly recap. This helped us think about gamification as part of the existing workflow rather than something added on top of it.</div></div>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 54px 0 0">Redesigning Near Me</h2>
+        <div style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty"><div>Near Me is where creators can see whether their work is reaching people, so it was one of the screens we focused on most with the UI/UX team. In the live app, every clip had the same pin, the list didn’t make it clear how close a clip was or who created it, and there wasn’t a way to filter what you were seeing. We focused on making the map easier to understand before adding anything new.</div></div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 26px; align-items: start">
+          <figure style="margin: 0">
+            <p style="display: inline-block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #A69A8B; margin: 0 0 10px; padding: 4px 10px; border-radius: 999px; border: 1px solid #2E2823">Before</p>
+            <img src="assets/thoughtgps/before-nearme.jpg" alt="Original Near Me screen in the live app" style="width: 100%; border-radius: 18px; border: 1px solid #2E2823; display: block">
+            <figcaption style="font-size: 14px; color: #A69A8B; margin-top: 10px; text-wrap: pretty">Live app: one pin style for everything, a list with no hierarchy, no filtering.</figcaption>
+          </figure>
+          <figure style="margin: 0">
+            <p style="display: inline-block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #A9B1DD; margin: 0 0 10px; padding: 4px 10px; border-radius: 999px; border: 1px solid #3A4160; background: #262A3E">After</p>
+            <img src="assets/thoughtgps/after-nearme.jpg" alt="Redesigned Near Me screen" style="width: 100%; border-radius: 18px; border: 1px solid #2E2823; display: block">
+            <figcaption style="font-size: 14px; color: #A69A8B; margin-top: 10px; text-wrap: pretty">Redesign: colour-coded pins, a clip sheet that can collapse, and filters in reach.</figcaption>
+          </figure>
+        </div>
+
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 20px; margin: 40px 0 0">A pin language</h3>
+        <p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 12px 0 0; text-wrap: pretty">The main goal was to make the map easier to understand at a glance. We gave each type of pin its own color and center so creators could tell their drafts from published work, while listeners could tell the difference between a friend’s clip, a featured clip, and a premium clip without opening each one.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 14px; margin-top: 22px; padding: 24px 20px; border-radius: 20px; background: #262A3E">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><img src="assets/thoughtgps/pin-draft.png" alt="Draft pin" style="width: 38px; display: block"><p style="margin: 0; font-size: 14px; color: #DBD2C6; text-align: center">Draft</p></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><img src="assets/thoughtgps/pin-published.png" alt="Published pin" style="width: 38px; display: block"><p style="margin: 0; font-size: 14px; color: #DBD2C6; text-align: center">Published</p></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><img src="assets/thoughtgps/pin-nearby.png" alt="Nearby pin" style="width: 38px; display: block"><p style="margin: 0; font-size: 14px; color: #DBD2C6; text-align: center">Nearby</p></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><img src="assets/thoughtgps/pin-friend.png" alt="Friend pin" style="width: 38px; display: block"><p style="margin: 0; font-size: 14px; color: #DBD2C6; text-align: center">Friends</p></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><img src="assets/thoughtgps/pin-featured.png" alt="Featured clip pin" style="width: 38px; display: block"><p style="margin: 0; font-size: 14px; color: #DBD2C6; text-align: center">Featured</p></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><img src="assets/thoughtgps/pin-premium.png" alt="Premium clip pin" style="width: 38px; display: block"><p style="margin: 0; font-size: 14px; color: #DBD2C6; text-align: center">Premium</p></div>
+        </div>
+        <p style="font-size: 15px; line-height: 1.6; color: #A69A8B; margin: 14px 0 0; text-wrap: pretty">We tested a few different ways to use color, including the outer pin, inner dot, and list row. We ended up using a colored pin with a neutral center because it was easiest to read on the map in both light and dark mode.</p>
+
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 20px; margin: 40px 0 0">Filters and a dark map</h3>
+        <p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 12px 0 0; text-wrap: pretty">Once the pins had clear meanings, we could also add filters for route type, view count, and rating directly on the map.&nbsp;</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 18px; margin-top: 22px">
+          <figure style="margin: 0"><img src="assets/thoughtgps/after-filter.jpg" alt="Filter panel over the map" style="width: 100%; border-radius: 16px; border: 1px solid #2E2823; display: block"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px">Filters sit over the map, with a live count of what's shown.</figcaption></figure>
+          <figure style="margin: 0"><img src="assets/thoughtgps/after-nearme-dark.jpg" alt="Near Me in dark mode" style="width: 100%; border-radius: 16px; border: 1px solid #2E2823; display: block"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px">Dark mode, with pin colours retuned for contrast.</figcaption></figure>
+          <figure style="margin: 0"><img src="assets/thoughtgps/after-filter-dark.jpg" alt="Filter panel in dark mode" style="width: 100%; border-radius: 16px; border: 1px solid #2E2823; display: block"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px">The same filter panel in dark mode.</figcaption></figure>
+        </div>
+
+        <figure style="margin: 34px 0 0">
+          
+          
+        </figure>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 46px 0 0">Outcomes</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty">The work came together as a prioritized product brief that the team could use to guide future improvements. We also defined the metrics that would help evaluate the experience, including signup to first clip conversion, signup to first route conversion, clips and routes per creator, weekly active users, 7 day retention, route completion, and referrals.</p>
+        <p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty">More importantly, the project gave me experience working with a live mobile product and seeing how user research, product feedback, and UI/UX decisions connect. I learned how to take something a user struggles with and turn it into a product decision the team can act on.</p>
+      </article>
+    </sc-if>
+
+    <!-- ================= SAKURA ================= -->
+    <sc-if value="{{ isSakura }}" hint-placeholder-val="{{ false }}">
+      <article style="max-width: 900px; margin: 0 auto; padding: 74px 22px 80px">
+        <a href="#/work" style="font-size: 15px; color: #9B8F7E">← Back to work</a>
+        <h1 style="font-family: 'Sora', sans-serif; font-size: clamp(36px, 5.5vw, 60px); letter-spacing: -0.035em; margin: 18px 0 0">Sakura</h1>
+        <p style="font-size: clamp(17px, 2vw, 20px); line-height: 1.55; color: #C7BDB0; margin: 18px 0 0; text-wrap: pretty">Helping low-income women discover affordable alternatives to overpriced pink-tax products through a simple search and comparison experience.</p>
+
+        <dl style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 18px; margin: 34px 0 0; padding: 22px; border-radius: 20px; background: #2C1F22">
+          <div><dt style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #E2A3AB">Timeline</dt><dd style="margin: 6px 0 0; font-weight: 500">2 days</dd></div>
+          <div><dt style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #E2A3AB">Team</dt><dd style="margin: 6px 0 0; font-weight: 500">Team of 4</dd></div>
+          <div><dt style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #E2A3AB">Role</dt><dd style="margin: 6px 0 0; font-weight: 500">UX/UI Designer</dd></div>
+          <div><dt style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #E2A3AB">Year</dt><dd style="margin: 6px 0 0; font-weight: 500">2026</dd></div>
+        </dl>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-top: 22px">
+          <div style="padding: 20px; border-radius: 18px; background: #1E1A16; border: 1px solid #2E2823"><p style="font-family: 'Sora', sans-serif; font-size: 32px; margin: 0; letter-spacing: -0.03em">160+</p><p style="margin: 6px 0 0; font-size: 14px; color: #A69A8B">survey responses</p></div>
+          <div style="padding: 20px; border-radius: 18px; background: #1E1A16; border: 1px solid #2E2823"><p style="font-family: 'Sora', sans-serif; font-size: 32px; margin: 0; letter-spacing: -0.03em">60%</p><p style="margin: 6px 0 0; font-size: 14px; color: #A69A8B">had never heard of the pink tax</p></div>
+          <div style="padding: 20px; border-radius: 18px; background: #1E1A16; border: 1px solid #2E2823"><p style="font-family: 'Sora', sans-serif; font-size: 32px; margin: 0; letter-spacing: -0.03em">95%</p><p style="margin: 6px 0 0; font-size: 14px; color: #A69A8B">wanted a tool like this</p></div>
+        </div>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 54px 0 0">Context</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty">Sakura was built in a two-day designathon. I worked as a UX/UI designer across research and interface. With only two days, we had to make decisions quickly, back them up with evidence, and narrow everything down to one direction and one prototype.</p>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 46px 0 0">The problem</h2>
+        <blockquote style="margin: 18px 0 0; padding: 22px 26px; border-radius: 20px; background: #2C1F22; font-size: 19px; line-height: 1.5; font-weight: 500">How might we help brand-loyal, low-income women look past pretty packaging to find high-quality, fair-priced alternatives and make informed decisions for their financial future?</blockquote>
+        <p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 18px 0 0; text-wrap: pretty">Women in the U.S. earn roughly 81% of what men earn, yet pay more to exist: women's personal care products cost about 13% more on average, and women's hair products can run up to 48% higher than men's. The behavioral half is harder. The Halo Effect means attractive packaging reads as higher quality, so many shoppers never look for the cheaper equivalent even when the ingredients match.</p>
+        <div style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty"><div>Our survey drew 160+ responses across age, income, and employment. 60% had not heard of the pink tax at all. 82% spend under $150 per month on personal care, and 39% spend under $50, making a $3 to $5 saving per item a meaningful share of an essentials budget. Price was the number one purchase driver, yet 4 out of 5 interviewees still cared about packaging. 67% only trust a product when friends or reviews vouch for it. And 95% said yes to a tool that surfaced cheaper alternatives.</div></div>
+
+        <figure style="margin: 28px 0 0">
+          <img src="assets/sakura/opt-p07-1.jpg" alt="Survey findings on spending habits" style="width: 100%; border-radius: 18px; border: 1px solid #2E2823; background: #1E1A16">
+          <figcaption style="font-size: 14px; color: #A69A8B; margin-top: 10px">Survey findings: limited budgets shape personal care purchases.</figcaption>
+        </figure>
+
+        
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 46px 0 0">Process</h2><p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty">We mapped how our user shops today, ran a competitive analysis, and found the gap: existing tools find the cheapest version of the <em>same</em> product. None of them expose the gender-based price difference or offer a genuinely comparable alternative.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 24px">
+          <figure style="margin: 0"><img src="assets/sakura/opt-p08-1.jpg" alt="Current purchasing user flow" style="width: 100%; border-radius: 16px; border: 1px solid #2E2823; background: #1E1A16"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px">How our user shops today.</figcaption><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px"><br></figcaption></figure>
+          
+        </div>
+        <img src="assets/sakura/opt-p09-1.jpg" alt="Competitive analysis" style="width: 100%; border-radius: 16px; border: 1px solid #2E2823; background: #1E1A16"><figure style="margin: 0"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px">Competitive analysis and our advantage.</figcaption></figure><p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 22px 0 0; text-wrap: pretty">We also considered a browser extension and an AR try-in-store concept. The extension only helps online, but ~70% of respondents shop both online and in person; AR doesn't support the planning-ahead behaviour people described. 67% told us they'd want a mobile app — so that's what we built.</p>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 46px 0 0">The solution</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty">Sakura helps users both before they shop and while they’re standing in the aisle. Users search, scan, or upload a photo of a product; Sakura returns the best alternatives with a % match, then explains <em>why</em> it matches on ingredients, performance and feel, alongside reviews from other women. Swapping an item logs the saving and grows a sakura tree on your phone's homepage, so a habit change has something to show for it.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 18px; margin-top: 26px">
+          <figure style="margin: 0"><img src="assets/sakura/opt-p12-2.png" alt="Best alternative screen with match breakdown" style="width: 100%; border-radius: 16px"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px; text-align: center">Why this matches — ingredients, performance, feel.</figcaption></figure>
+          <figure style="margin: 0"><img src="assets/sakura/opt-p12-3.png" alt="Item finder search results" style="width: 100%; border-radius: 16px"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px; text-align: center">Item finder: search, scan, or upload.</figcaption></figure>
+          <figure style="margin: 0"><img src="assets/sakura/opt-p13-1.png" alt="Sakura tree savings tracker" style="width: 272px; border-radius: 16px; height: 531px"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px; text-align: center">Savings grow the sakura tree.</figcaption></figure>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 18px; margin-top: 18px">
+          <figure style="margin: 0"><img src="assets/sakura/opt-p14-3.png" alt="Swap confirmation screen" style="width: 100%; border-radius: 16px"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px; text-align: center">Sakura tree on your homepage to motivate you to keep saving.</figcaption></figure>
+          <figure style="margin: 0"><img src="assets/sakura/opt-p14-4.png" alt="Shopping list with total saved" style="width: 265px; border-radius: 16px; height: 526px"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px; text-align: center">Push notifications to remind you to save.</figcaption></figure>
+          <figure style="margin: 0"><img src="assets/sakura/opt-p14-2.png" alt="Onboarding screen" style="width: 262px; border-radius: 16px; height: 527px"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px; text-align: center">New users get a clear breakdown first.</figcaption></figure>
+        </div>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 46px 0 0">Outcomes &amp; reflection</h2>
+        <div style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty"><div>In just two days, we turned our research into an interactive Figma prototype. By helping users look beyond brand familiarity and compare products based on what actually matters to them, Sakura makes it easier to find affordable alternatives without feeling like they are sacrificing quality. Our research showed strong demand, with 95.4% of low income shoppers saying they would use a tool like Sakura. By combining price comparisons with product details and reviews from other women, Sakura makes finding cheaper alternatives feel less like a compromise and more like a confident choice.<br></div></div>
+        
+      </article>
+    </sc-if>
+
+    <!-- ================= COASTKEEPER ================= -->
+    <sc-if value="{{ isCoast }}" hint-placeholder-val="{{ false }}">
+      <article style="max-width: 900px; margin: 0 auto; padding: 74px 22px 80px">
+        <a href="#/work" style="font-size: 15px; color: #9B8F7E">← Back to work</a>
+        <h1 style="font-family: 'Sora', sans-serif; font-size: clamp(30px, 4.4vw, 50px); line-height: 1.08; letter-spacing: -0.03em; margin: 18px 0 0; text-wrap: balance; text-align: left">Redesigning how San Diego Coastkeeper teaches beachgoers and advocates about local water quality</h1>
+
+        <dl style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 18px; margin: 34px 0 0; padding: 22px; border-radius: 20px; background: #22303A">
+          <div><dt style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #9DC0D1">Timeline</dt><dd style="margin: 6px 0 0; font-weight: 500">10 weeks</dd></div>
+          <div><dt style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #9DC0D1">Team</dt><dd style="margin: 6px 0 0; font-weight: 500">Team of 5</dd></div>
+          <div><dt style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #9DC0D1">Role</dt><dd style="margin: 6px 0 0; font-weight: 500">UX Researcher</dd></div>
+          <div><dt style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #9DC0D1">Year</dt><dd style="margin: 6px 0 0; font-weight: 500">2026</dd></div>
+        </dl>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 54px 0 0">Context</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty">San Diego Coastkeeper is an environmental nonprofit protecting the waterways of San Diego County. Through DesignCo at UC San Diego, our team partnered with them to redesign their educational page so that complex environmental reporting became engaging, accessible and easy to act on.&nbsp;</p>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 46px 0 0">The problem</h2>
+        <blockquote style="margin: 18px 0 0; padding: 22px 26px; border-radius: 20px; background: #22303A; font-size: 19px; line-height: 1.5; font-weight: 500">How might we create a website experience that allows both casual beachgoers and environmental advocates to easily access, understand, and act on coastal water information?</blockquote>
+        <div style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 18px 0 0; text-wrap: pretty"><div>Educational content was scattered across different pages, written for people who already understood the science. We were trying to serve two very different audiences, from curious beachgoers to committed advocates, with the same experience. In the end, neither was easily finding the information or actions they needed.</div></div>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 46px 0 0">Research</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty">I was the UX research lead, working alongside my coworker.&nbsp;We wrote and ran the survey on how people navigate the current site, conducted the interviews, and synthesized everything into insights the team could use to guide our redesign. Then, we built the personas and ran a competitive analysis of comparable environmental nonprofits. Four questions guided it: how easily can users find key information today, how do they prefer to see environmental data, what makes information hard to understand, and what would improve the experience overall.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 24px">
+          <figure style="margin: 0"><img src="assets/coastkeeper/pasted-1789019273500-0-mtv3vuao-luxa.jpg" alt="pasted-1789019273500-0" width="1968" height="786" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 1968px; aspect-ratio: 1968 / 786"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px; width: 877px; height: 40px">Persona: the environmental advocate.</figcaption><img src="assets/coastkeeper/pasted-1789019329633-0-mtv3x1hv-8qc8.jpg" alt="pasted-1789019329633-0" width="2156" height="822" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 2156px; aspect-ratio: 2156 / 822"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px; width: 845px; height: 21px">Persona: the casual beachgoer.</figcaption></figure>
+          
+          
+          
+        </div>
+
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 20px; margin: 34px 0 0">Key insights</h3>
+        <ul style="margin: 14px 0 0; padding-left: 22px; font-size: 17px; line-height: 1.65; color: #DBD2C6; display: flex; flex-direction: column; gap: 8px">
+          <li>Both personas struggle when reading through the dense text and technical explanations of the science.</li>
+          <li>Visuals are crucial. Interactive maps, charts, icons and ratings are how people understand data.</li>
+          <li>Users want quick access to information they can trust, and expect the important things to be immediately visible.</li>
+          <li>Journey maps showed frustration whenever finding one fact meant clicking through several pages.</li>
+          <li>Educational content has to connect to an action. People want to know what to do with what they've learned.</li>
+        </ul>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 46px 0 0">Process</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty">We sketched layouts and moved into low-fidelity Figma wireframes, then high fidelity. The decisions that mattered were structural. We wanted to have one main education landing page instead of scattered material, four card sections collapsed into three scrollable ones, a section preview before anyone clicks, "Issues" renamed to the "Learn", and downloadable curriculum merged with videos into "Courses" grouped by topic.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; margin-top: 24px">
+          
+          <figure style="margin: 0"><img src="assets/coastkeeper/opt-p14-1.jpg" alt="Low fidelity wireframe" style="width: 100%; border-radius: 16px; border: 1px solid #2E2823; background: #1E1A16"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px">Low-fidelity education page.</figcaption></figure>
+          <figure style="margin: 0"><img src="assets/coastkeeper/opt-p15-1.jpg" alt="High fidelity design" style="width: 100%; border-radius: 16px; border: 1px solid #2E2823; background: #1E1A16"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px">High-fidelity education page.</figcaption></figure>
+        </div>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 46px 0 0">The solution</h2>
+        <figure style="margin: 22px 0 0">
+          
+          <figcaption style="font-size: 14px; color: #A69A8B; margin-top: 10px">Courses, grouped by topic and grade level, with video and curriculum together.</figcaption>
+        </figure>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; margin-top: 18px">
+          <figure style="margin: 0"><img src="assets/coastkeeper/opt-p15-2.jpg" alt="Redesigned home section" style="width: 100%; border-radius: 16px; border: 1px solid #2E2823; background: #1E1A16"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px">Landing page with previews before "View all".</figcaption></figure>
+          <figure style="margin: 0"><img src="assets/coastkeeper/opt-p15-3.jpg" alt="Redesigned articles section" style="width: 280px; border-radius: 16px; border: 1px solid #2E2823; background: #1E1A16; height: 423px"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px">Articles lead with imagery, not paragraphs.</figcaption></figure>
+          <figure style="margin: 0"><img src="assets/coastkeeper/opt-p15-4.jpg" alt="Redesigned activities section" style="width: 100%; border-radius: 16px; border: 1px solid #2E2823; background: #1E1A16"><figcaption style="font-size: 14px; color: #A69A8B; margin-top: 8px">Fun activities, previewed visually.</figcaption></figure>
+        </div>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 46px 0 0">Outcomes</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty">We A/B tested the redesigned prototype against the live site with 15 participants, alternating order to reduce bias and using identical tasks for navigation, resource discovery and content selection.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; margin-top: 22px">
+          <div style="padding: 22px; border-radius: 18px; background: #22303A"><p style="font-family: 'Sora', sans-serif; font-size: 30px; margin: 0; letter-spacing: -0.03em">60% → 87%</p><p style="margin: 8px 0 0; font-size: 14px; color: #9DC0D1">Education findability</p></div>
+          <div style="padding: 22px; border-radius: 18px; background: #22303A"><p style="font-family: 'Sora', sans-serif; font-size: 30px; margin: 0; letter-spacing: -0.03em">0% → 60%</p><p style="margin: 8px 0 0; font-size: 14px; color: #9DC0D1">Influenced by imagery when choosing articles</p></div>
+          <div style="padding: 22px; border-radius: 18px; background: #22303A"><p style="font-family: 'Sora', sans-serif; font-size: 30px; margin: 0; letter-spacing: -0.03em">73% → 87%</p><p style="margin: 8px 0 0; font-size: 14px; color: #9DC0D1">Successful video + curriculum discovery</p></div>
+        </div>
+        <p style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 22px 0 0; text-wrap: pretty">Discoverability rose about 20% in testing, and the deliverables of simplified navigation and a site migration plan went to the Coastkeeper team to implement. However, it is important to note limitations. 15 participants is directional, not conclusive, and we tested a prototype rather than a live build.</p>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; letter-spacing: -0.02em; margin: 46px 0 0">What's next &amp; what I learned</h2>
+        <div style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 14px 0 0; text-wrap: pretty"><div>The A/B results helped us decide what to improve next: adding more variety to the article images, making “View all” easier to notice, and adding a search bar across the education page. This project also showed me how much research can help keep a six person team aligned, and how important it is to turn research findings into decisions that developers can actually build.</div></div>
+      </article>
+    </sc-if>
+
+    <!-- ================= ABOUT ================= -->
+    <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+      <section style="max-width: 3000000px; margin: 0 auto; padding: 74px 22px 20px; background: radial-gradient(55% 70% at 92% 0%, rgba(136, 145, 196, 0.2), rgba(136, 145, 196, 0) 70%), radial-gradient(50% 80% at 4% 10%, rgba(201, 123, 132, 0.16), rgba(201, 123, 132, 0) 72%)">
+        <h1 style="font-family: 'Sora', sans-serif; font-size: clamp(32px, 5vw, 56px); line-height: 1.06; letter-spacing: -0.035em; margin: 0; max-width: 22ch; text-wrap: balance; margin-left: 23px; font-weight: 600">I'm a designer who believes technology should feel human.</h1>
+        <p style="font-size: clamp(16px, 1.9vw, 19px); line-height: 1.55; color: #C7BDB0; max-width: 90ch; margin: 20px 0 0; text-wrap: pretty; margin-left: 25px">Currently exploring the intersection of design, AI, entrepreneurship, and technology to learn, grow, and create meaningful impact.</p>
+      </section>
+
+      <section style="max-width: 1000px; margin: 0 auto; padding: 36px 22px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; align-items: start">
+        <div style="position: relative">
+          
+          <img src="assets/ananya-opt.jpg" alt="Ananya Mahadi" style="position: relative; width: 100%; border-radius: 24px; border: 1px solid #2E2823">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px">
+          <div style="font-size: 17px; line-height: 1.65; color: #DBD2C6; margin: 0; text-wrap: pretty"><div style="font-size: 18px">Hi, I'm Ananya Mahadi. I design digital experiences that are intuitive, human-centered, and visually engaging. My work bridges UI/UX, HCI, AI, and visual design, creating interfaces that reflect thoughtful attention to detail.</div></div>
+          <p style="font-size: 18px; line-height: 1.65; color: #DBD2C6; margin: 0; text-wrap: pretty">I'm drawn to the line between how something works and how it feels. Apps, websites, research decks: the goal is always something accessible, meaningful and memorable. I get there by asking a lot of questions. In other words, curiosity is my actual method.</p><p style="font-size: 18px; line-height: 1.65; color: #DBD2C6; margin: 0; text-wrap: pretty">Open to collaborations, commissions, and strange problems. Bonus points if they involve odd questions or an existential crisis.</p>
+          
+          
+        </div>
+      </section>
+
+      <section style="max-width: 1000px; margin: 40px auto 80px; padding: 0 22px">
+        <div style="padding: 34px; border-radius: 26px; background: #392E1D; border: 1px solid #4A3B21">
+          <h2 style="font-family: 'Sora', sans-serif; font-size: clamp(24px, 3.4vw, 34px); letter-spacing: -0.03em; margin: 0">Let's work together</h2>
+          <p style="font-size: 16px; line-height: 1.6; color: #C7BDB0; max-width: 58ch; margin: 12px 0 0; text-wrap: pretty">I'm currently seeking design internship opportunities where I can contribute my skills, learn from experienced designers, and grow as a creative problem-solver.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px">
+            <a href="#/contact" style="display: inline-flex; align-items: center; gap: 10px; padding: 13px 24px; border-radius: 999px; background: #F2EDE4; color: #15120F; font-size: 16px; font-weight: 500; transition: transform 0.2s ease" style-hover="transform:translateY(-2px);color:#15120F">Get in touch <span style="display: inline-block; animation: nudge 1.5s ease-in-out infinite">→</span></a>
+            <a href="#/work" style="display: inline-flex; align-items: center; gap: 10px; padding: 13px 24px; border-radius: 999px; border: 1px solid #4C4029; background: rgba(242, 237, 228, 0.07); font-size: 16px; font-weight: 500; transition: background 0.2s ease, transform 0.2s ease" style-hover="background:#1E1A16;transform:translateY(-2px);color:#F2EDE4">View my work <span style="display: inline-block; animation: nudge 1.5s ease-in-out infinite">→</span></a>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- ================= CONTACT ================= -->
+    <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+      <section style="width: 100%; padding: 74px 22px 10px; background: radial-gradient(55% 70% at 92% 0%, rgba(136, 145, 196, 0.2), rgba(136, 145, 196, 0) 70%), radial-gradient(50% 80% at 4% 10%, rgba(201, 123, 132, 0.16), rgba(201, 123, 132, 0) 72%)">
+        <div style="max-width: 1000px; margin: 0 auto">
+        <h1 style="font-family: 'Sora', sans-serif; font-size: clamp(34px, 5.4vw, 58px); line-height: 1.06; letter-spacing: -0.035em; margin: 0; text-align: left; margin-left: 24px">I'd love to hear from you!</h1>
+        <p style="font-size: clamp(16px, 1.9vw, 19px); line-height: 1.55; color: #C7BDB0; max-width: 100000ch; margin: 20px 0 0; text-wrap: pretty; text-align: left; margin-right: 0px; margin-left: 24px; width: 992px; height: 36px">Whether you have a project in mind, want to discuss design, or just want to say hello, my inbox is always open.</p>
+        </div>
+      </section>
+
+      <section style="max-width: 1000px; margin: 0 auto; padding: 36px 22px 80px; display: flex; flex-direction: column; gap: 20px">
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: stretch">
+
+        <div style="padding: 30px; border-radius: 24px; background: #3A252A; border: 1px solid #4A2F35; display: flex; flex-direction: column; gap: 14px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F2EDE4" stroke-width="1.5" style="width: 26px; height: 26px"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"></rect><path d="M3 6.5l9 6.5 9-6.5"></path></svg>
+          <div>
+            <h2 style="font-family: 'Sora', sans-serif; font-size: 22px; margin: 0; letter-spacing: -0.02em">Email</h2>
+            <p style="font-size: 15px; color: #C7BDB0; margin: 8px 0 0; word-break: break-all">ananya.s.mahadi@gmail.com</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 2px">
+            <button onClick="{{ copyEmail }}" style="display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 999px; border: 1px solid #F2EDE4; background: transparent; font-family: 'Manrope', sans-serif; font-size: 15px; cursor: pointer; color: #F2EDE4; transition: background 0.2s ease" style-hover="background:rgba(242, 237, 228, 0.12)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 16px; height: 16px"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M15 5.5A1.5 1.5 0 0013.5 4h-8A1.5 1.5 0 004 5.5v8A1.5 1.5 0 005.5 15"></path></svg>
+              {{ copyLabel }}
+            </button>
+            <a href="mailto:ananya.s.mahadi@gmail.com" style="display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 999px; background: #F2EDE4; color: #15120F; font-size: 15px; transition: transform 0.2s ease" style-hover="transform:translateY(-2px);color:#15120F">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 16px; height: 16px"><path d="M14 4h6v6"></path><path d="M20 4L11 13"></path><path d="M18 14v4.5A1.5 1.5 0 0116.5 20h-11A1.5 1.5 0 014 18.5v-11A1.5 1.5 0 015.5 6H10"></path></svg>
+              Open
+            </a>
+          </div>
+        </div>
+
+        <a href="https://www.linkedin.com/in/ananya-mahadi-479637297" target="_blank" rel="noopener" style="padding: 26px; border-radius: 24px; background: #262A3E; border: 1px solid #363B58; display: flex; flex-direction: column; gap: 14px; transition: transform 0.25s ease, box-shadow 0.25s ease" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px -26px rgba(60,60,120,0.5);color:#F2EDE4">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F2EDE4" stroke-width="1.5" style="width: 26px; height: 26px"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M7.5 10v7"></path><circle cx="7.5" cy="7.4" r="0.9" fill="#F2EDE4" stroke="none"></circle><path d="M11.5 17v-4a2.5 2.5 0 015 0v4"></path><path d="M11.5 10v7"></path></svg>
+          <div>
+            <h2 style="font-family: 'Sora', sans-serif; font-size: 22px; margin: 0; letter-spacing: -0.02em">LinkedIn</h2>
+            <p style="font-size: 15px; color: #C7BDB0; margin: 8px 0 0; word-break: break-all">www.linkedin.com/in/ananya-mahadi-479637297</p>
+          </div>
+          <span style="display: inline-flex; align-items: center; gap: 8px; font-weight: 500; font-size: 15px; margin-top: auto">Let's connect <span style="display: inline-block; animation: nudge 1.5s ease-in-out infinite">→</span></span>
+        </a>
+
+        </div>
+
+        <a href="assets/Ananya-Mahadi-Resume.pdf" target="_blank" rel="noopener" style="padding: 30px; border-radius: 24px; background: #24302A; border: 1px solid #35473B; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 26px; align-items: center; transition: transform 0.25s ease, box-shadow 0.25s ease" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px -26px rgba(50,90,60,0.45);color:#F2EDE4">
+          <div>
+            <h2 style="font-family: 'Sora', sans-serif; font-size: 26px; margin: 0; letter-spacing: -0.02em">Résumé</h2>
+            <p style="font-size: 16px; color: #C7BDB0; margin: 10px 0 0; max-width: 34ch; text-wrap: pretty">View my full résumé</p>
+            <span style="display: inline-flex; align-items: center; gap: 8px; font-weight: 500; font-size: 15px; margin-top: 20px">Open PDF <span style="display: inline-block; animation: nudge 1.5s ease-in-out infinite">→</span></span>
+          </div>
+          <div style="position: relative; border-radius: 14px; overflow: hidden; background: #1E1A16; border: 1px solid #35473B; padding: 18px 20px; font-size: 10px; line-height: 1.5; color: #A69A8B; min-height: 230px">
+            <p style="font-family: 'Sora', sans-serif; font-size: 15px; color: #F2EDE4; margin: 0 0 2px">Ananya Mahadi</p>
+            <p style="margin: 0 0 10px">925-596-4229 · ananya.s.mahadi@gmail.com · ananyamahadi.com</p>
+            <p style="font-weight: 600; color: #F2EDE4; margin: 0 0 3px; letter-spacing: 0.04em">EDUCATION</p>
+            <p style="margin: 0 0 10px">University of California, San Diego — B.S. Cognitive Science, Design &amp; Interaction · Minor in Entrepreneurship &amp; Technology · GPA 3.8</p>
+            <p style="font-weight: 600; color: #F2EDE4; margin: 0 0 3px; letter-spacing: 0.04em">EXPERIENCE</p>
+            <p style="margin: 0 0 4px">UX Researcher — San Diego Coastkeeper, DesignCo at UCSD</p>
+            <p style="margin: 0 0 4px">Product Advisor — Product Management Club at UCSD</p>
+            <p style="margin: 0 0 4px">User Onboarding &amp; Product Research Intern — ThoughtGPS</p>
+            <p style="margin: 0 0 10px">Vice President of Design — AI Student Collective at UCSD</p>
+            <p style="font-weight: 600; color: #F2EDE4; margin: 0 0 3px; letter-spacing: 0.04em">PROJECTS</p>
+            <p style="margin: 0">Sakura · Mental Health America Website Redesign</p>
+            <div style="position: absolute; inset: auto 0 0 0; height: 62px; background: linear-gradient(to bottom, rgba(30,26,22,0), #1E1A16)"></div>
+            <div style="position: absolute; right: 0; bottom: 0; width: 0; height: 0; border-style: solid; border-width: 0 0 40px 40px; border-color: transparent transparent #24302A transparent; transition: border-width 0.3s ease"></div>
+          </div>
+        </a>
+      </section>
+    </sc-if>
+
+  </main><footer style="border-top: 1px solid #2E2823; padding: 30px 22px; background: #191510">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center; font-size: 14px; color: #A69A8B">
+      <span>© 2026 Ananya Mahadi</span>
+      <span style="display: flex; gap: 16px">
+        <a href="mailto:ananya.s.mahadi@gmail.com" style="color: #A69A8B">Email</a>
+        <a href="https://www.linkedin.com/in/ananya-mahadi-479637297" target="_blank" rel="noopener" style="color: #A69A8B">LinkedIn</a>
+        <a href="assets/Ananya-Mahadi-Resume.pdf" target="_blank" rel="noopener" style="color: #A69A8B">Résumé</a>
+      </span>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Homepage&quot;},&quot;artColumns&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;min&quot;:1,&quot;max&quot;:4,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Artwork&quot;}}">
+class Component extends DCLogic {
+  state = { route: 'home', copied: false, art: null };
+
+  componentDidMount() {
+    this._onHash = () => {
+      const r = (location.hash || '').replace(/^#\/?/, '') || 'home';
+      this.setState(s => ({ route: r, tick: (s.tick || 0) + 1 }));
+      if (this._main) {
+        this._main.style.animation = 'none';
+        void this._main.offsetWidth;
+        this._main.style.animation = 'pageIn 0.55s cubic-bezier(0.22,0.7,0.24,1) both';
+      }
+      window.scrollTo({ top: 0 });
+    };
+    this._onHash();
+    window.addEventListener('hashchange', this._onHash);
+    this._onKey = (e) => { if (e.key === 'Escape' && this.state.art) this.setState({ art: null }); };
+    window.addEventListener('keydown', this._onKey);
+    this._startCanvas();
+  }
+
+  componentWillUnmount() {
+    if (this._ro) this._ro.disconnect();
+    window.removeEventListener('hashchange', this._onHash);
+    window.removeEventListener('keydown', this._onKey);
+    cancelAnimationFrame(this._raf);
+  }
+
+  componentDidUpdate() { this._startCanvas(); }
+
+  _startCanvas() {
+    const c = this._canvas;
+    if (!c || c === this._activeCanvas) return;
+    this._activeCanvas = c;
+    cancelAnimationFrame(this._raf);
+    if (this.props.heroMotion === false) return;
+
+    const ctx = c.getContext('2d');
+    const palette = ['#C97B84', '#7E9B84', '#8891C4', '#D9A75C', '#C4795C', '#7FA8C0'];
+    let w = 0, h = 0, t = 0;
+    let px = null, py = null;
+    const design = document.createElement('canvas');
+    const dctx = design.getContext('2d');
+    const mask = document.createElement('canvas');
+    const mctx = mask.getContext('2d');
+
+    const paintDesign = () => {
+      dctx.setTransform(1, 0, 0, 1, 0, 0);
+      dctx.clearRect(0, 0, design.width, design.height);
+      const g = dctx.createLinearGradient(0, 0, design.width, design.height);
+      g.addColorStop(0, '#C9737F'); g.addColorStop(0.35, '#6E7AB8');
+      g.addColorStop(0.68, '#6E9478'); g.addColorStop(1, '#C99F53');
+      dctx.fillStyle = g;
+      dctx.fillRect(0, 0, design.width, design.height);
+      const cell = 74;
+      for (let y = 0; y < design.height + cell; y += cell) {
+        for (let x = 0; x < design.width + cell; x += cell) {
+          const k = (Math.floor(x / cell) + Math.floor(y / cell) * 3) % palette.length;
+          dctx.fillStyle = palette[k];
+          dctx.globalAlpha = 0.5;
+          dctx.beginPath();
+          if ((Math.floor(x / cell) + Math.floor(y / cell)) % 3 === 0) {
+            dctx.arc(x, y, cell * 0.26, 0, Math.PI * 2);
+          } else if ((Math.floor(x / cell) + Math.floor(y / cell)) % 3 === 1) {
+            dctx.arc(x, y, cell * 0.3, Math.PI, Math.PI * 2);
+          } else {
+            dctx.rect(x - cell * 0.15, y - cell * 0.15, cell * 0.3, cell * 0.3);
+          }
+          dctx.fill();
+          dctx.globalAlpha = 1;
+        }
+      }
+    };
+
+    let lastW = 0, lastH = 0;
+    const resize = () => {
+      const r = c.getBoundingClientRect();
+      if (r.width < 2 || r.height < 2) return;
+      if (Math.abs(r.width - lastW) < 1 && Math.abs(r.height - lastH) < 1) return;
+      lastW = r.width; lastH = r.height;
+      w = r.width; h = r.height;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      for (const cv of [c, design, mask]) {
+        cv.width = Math.max(1, w * dpr); cv.height = Math.max(1, h * dpr);
+      }
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      mctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      paintDesign();
+    };
+    resize();
+    requestAnimationFrame(resize);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(resize);
+    if (window.ResizeObserver) {
+      this._ro = new ResizeObserver(resize);
+      this._ro.observe(c);
+    }
+
+    const brush = (x, y, r) => {
+      const g = mctx.createRadialGradient(x, y, 0, x, y, r);
+      g.addColorStop(0, 'rgba(0,0,0,0.95)');
+      g.addColorStop(0.55, 'rgba(0,0,0,0.55)');
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      mctx.fillStyle = g;
+      mctx.beginPath(); mctx.arc(x, y, r, 0, Math.PI * 2); mctx.fill();
+    };
+
+    this._move = (e) => {
+      const r = c.getBoundingClientRect();
+      const x = e.clientX - r.left, y = e.clientY - r.top;
+      if (x < -40 || y < -40 || x > w + 40 || y > h + 40) { px = py = null; return; }
+      mctx.globalCompositeOperation = 'source-over';
+      if (px === null) { brush(x, y, 54); }
+      else {
+        const steps = Math.max(1, Math.ceil(Math.hypot(x - px, y - py) / 12));
+        for (let i = 1; i <= steps; i++) {
+          brush(px + (x - px) * (i / steps), py + (y - py) * (i / steps), 54);
+        }
+      }
+      px = x; py = y;
+    };
+    this._leave = () => { px = py = null; };
+    window.addEventListener('mousemove', this._move);
+    window.addEventListener('resize', resize);
+
+    const draw = () => {
+      t += 1;
+      mctx.globalCompositeOperation = 'destination-out';
+      mctx.fillStyle = 'rgba(0,0,0,0.008)';
+      mctx.fillRect(0, 0, w, h);
+      mctx.globalCompositeOperation = 'source-over';
+
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.clearRect(0, 0, w, h);
+      ctx.save();
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.drawImage(design, 0, 0);
+      ctx.globalCompositeOperation = 'destination-in';
+      ctx.drawImage(mask, 0, 0);
+      ctx.restore();
+      this._raf = requestAnimationFrame(draw);
+    };
+    draw();
+  }
+
+  renderVals() {
+    const r = this.state.route;
+    return {
+      isHome: r === 'home',
+      isWork: r === 'work',
+      isAbout: r === 'about',
+      isContact: r === 'contact',
+      isArt: r === 'work/artwork',
+      isTgps: r === 'work/thoughtgps',
+      isSakura: r === 'work/sakura',
+      isCoast: r === 'work/coastkeeper',
+      artColumns: this.props.artColumns ?? 3,
+      lightboxOpen: !!this.state.art,
+      lightboxImage: this.state.art ? React.createElement('img', {
+        src: this.state.art.src,
+        alt: this.state.art.title,
+        style: { maxWidth: 'min(100%, 1100px)', maxHeight: '78vh', width: 'auto', borderRadius: '10px', boxShadow: '0 30px 80px -30px rgba(0,0,0,0.7)' }
+      }) : null,
+      lightboxTitle: this.state.art ? this.state.art.title : '',
+      openArt: (e) => {
+        const el = e.currentTarget;
+        this.setState({ art: { src: el.dataset.src, title: el.dataset.title } });
+      },
+      closeArt: () => this.setState({ art: null }),
+      mainRef: (el) => {
+        this._main = el;
+        if (el) el.style.animation = 'pageIn 0.55s cubic-bezier(0.22,0.7,0.24,1) both';
+      },
+      openWork: () => this.setState({ workOpen: true }),
+      closeWork: () => this.setState({ workOpen: false }),
+      workMenuStyle: 'position:absolute;top:100%;left:0;min-width:220px;margin-top:6px;padding:8px;border-radius:16px;background:#1E1A16;border:1px solid #2E2823;box-shadow:0 24px 50px -26px rgba(0,0,0,0.75);display:flex;flex-direction:column;gap:2px;transition:opacity 0.18s ease, transform 0.18s ease;' + (this.state.workOpen ? 'opacity:1;transform:translateY(0);pointer-events:auto;' : 'opacity:0;transform:translateY(-6px);pointer-events:none;'),
+      scrollDown: () => window.scrollTo({ top: Math.max(0, window.innerHeight - 64), behavior: 'smooth' }),
+      canvasRef: (el) => { this._canvas = el; },
+      copyLabel: this.state.copied ? 'Copied!' : 'Copy email',
+      copyEmail: async () => {
+        try { await navigator.clipboard.writeText('ananya.s.mahadi@gmail.com'); } catch (e) {}
+        this.setState({ copied: true });
+        clearTimeout(this._ct);
+        this._ct = setTimeout(() => this.setState({ copied: false }), 1800);
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
